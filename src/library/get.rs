@@ -1,25 +1,17 @@
-struct Read<R: std::io::BufRead> {
+struct Get<R: std::io::BufRead> {
     stdin: R,
     v: Vec<String>,
     i: usize,
 }
-impl<R: std::io::BufRead> Read<R> {
+impl<R: std::io::BufRead> Get<R> {
     pub fn new(stdin: R) -> Self {
-        Read {
+        Get {
             stdin: stdin,
             v: Vec::new(),
             i: 0,
         }
     }
-    #[allow(dead_code)]
-    pub fn read_one_line(&mut self) -> String{
-        self.i = 0;
-        self.v.clear();
-        let mut buf = String::new();
-        self.stdin.read_line(&mut buf).unwrap();
-        buf.trim().to_owned()
-    }
-    pub fn read_line(&mut self) {
+    fn split_line(&mut self) {
         self.i = 0;
         self.v.clear();
         let mut buf = String::new();
@@ -36,24 +28,32 @@ impl<R: std::io::BufRead> Read<R> {
         }
     }
     #[allow(dead_code)]
-    pub fn read_a<T: std::str::FromStr>(&mut self) -> T {
+    pub fn once<T: std::str::FromStr>(&mut self) -> T {
         if self.i == self.v.len() {
-            self.read_line();
+            self.split_line();
         }
         let elem = &self.v[self.i];
         self.i += 1;
         elem.parse().unwrap_or_else(|_| panic!())
     }
+    #[allow(dead_code)]
+    pub fn line<T: std::str::FromStr>(&mut self) -> String {
+        self.i = 0;
+        self.v.clear();
+        let mut buf = String::new();
+        self.stdin.read_line(&mut buf).unwrap();
+        let buf = buf.trim().to_owned();
+        buf
+    }
 }
 
 fn main() {
-    use std::io;
-    let stdin = io::stdin();
-    let stdin = io::BufReader::new(stdin.lock());
-    let read = Read::new(stdin);
-    solve(read);
+    let stdin = std::io::stdin();
+    let stdin = std::io::BufReader::new(stdin.lock());
+    let get = Get::new(stdin);
+    solve(get);
 }
 
-fn solve<R: std::io::BufRead>(mut r: Read<R>) {
-    
+fn solve<R: std::io::BufRead>(mut get: Get<R>) {
+    // write code here...    
 }

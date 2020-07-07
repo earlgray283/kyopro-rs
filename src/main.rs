@@ -1,25 +1,25 @@
-struct Read<R: std::io::BufRead> {
+#![allow(unused_imports, dead_code, unused_variables, unused_mut)]
+use std::cmp;
+use std::collections::{BTreeMap, BTreeSet, BinaryHeap, HashMap, HashSet, VecDeque};
+use std::mem::swap;
+use permutohedron::LexicalPermutation;
+const INF: i32 = std::i32::MAX;
+const MOD: i32 = 1e9 as i32 + 7;
+
+struct Get<R: std::io::BufRead> {
     stdin: R,
     v: Vec<String>,
     i: usize,
 }
-impl<R: std::io::BufRead> Read<R> {
+impl<R: std::io::BufRead> Get<R> {
     pub fn new(stdin: R) -> Self {
-        Read {
-            stdin: stdin,
+        Get {
+            stdin,
             v: Vec::new(),
             i: 0,
         }
     }
-    #[allow(dead_code)]
-    pub fn read_one_line(&mut self) -> String {
-        self.i = 0;
-        self.v.clear();
-        let mut buf = String::new();
-        self.stdin.read_line(&mut buf).unwrap();
-        buf.trim().to_owned()
-    }
-    pub fn read_line(&mut self) {
+    fn split_line(&mut self) {
         self.i = 0;
         self.v.clear();
         let mut buf = String::new();
@@ -36,50 +36,32 @@ impl<R: std::io::BufRead> Read<R> {
         }
     }
     #[allow(dead_code)]
-    pub fn read_a<T: std::str::FromStr>(&mut self) -> T {
+    pub fn once<T: std::str::FromStr>(&mut self) -> T {
         if self.i == self.v.len() {
-            self.read_line();
+            self.split_line();
         }
         let elem = &self.v[self.i];
         self.i += 1;
         elem.parse().unwrap_or_else(|_| panic!())
     }
+    #[allow(dead_code)]
+    pub fn line<T: std::str::FromStr>(&mut self) -> String {
+        self.i = 0;
+        self.v.clear();
+        let mut buf = String::new();
+        self.stdin.read_line(&mut buf).unwrap();
+        let buf = buf.trim().to_owned();
+        buf
+    }
 }
 
-use std::cmp;
 fn main() {
-    let mut stdin = std::io::stdin();
+    let stdin = std::io::stdin();
     let stdin = std::io::BufReader::new(stdin.lock());
-    let mut r = Read::new(stdin);
+    let get = Get::new(stdin);
+    solve(get);
+}
 
-    let mut n: usize = r.read_a();
-    let mut v = vec![vec![0; n]; n - 1];
-    for i in 0..n - 1 {
-        for j in i + 1..n {
-            v[i][j] = r.read_a();
-        }
-    }
-    let mut ans = std::i32::MIN;
-    for mut x in 0..3_i32.pow(n as u32) {
-        let mut i = 0;
-        let mut list = vec![0; n];
-        while x > 0 {
-            let t = x % 3;
-            x /= 3;
-            list[i] = t;
-            i += 1;
-        }
-        let mut sum = 0;
-        for i in 0..n - 1 {
-            for j in i + 1..n {
-                //dbg!(i, j);
-                if list[i] == list[j] {
-                    sum += v[i][j];
-                }
-            }
-        }
-        ans = cmp::max(ans, sum);
-    }
-
-    println!("{}", ans);
+fn solve<R: std::io::BufRead>(mut get: Get<R>) {
+    
 }
