@@ -30,5 +30,5 @@ let s: Vec<char> = s.chars().collect();
 assert_eq!('m', s[0]); // ok
 ```
 
-rust は UTF-8 でエンコードしているため、```String``` 型に対してそのまま添え字アクセスすることはできない。  
-```chars()``` で1文字を返すイテレータを生成し、```collect()``` で ```Vec<char>``` に変換する必要がある。
+rust は UTF-8 でエンコードしているため、`String` 型に対してそのまま添え字アクセスすることはできない。  
+`chars()` で1文字を返すイテレータを生成し、`collect()` で `Vec<char>` に変換する必要がある。

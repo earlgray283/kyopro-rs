@@ -13,7 +13,7 @@ mod prime {
                     if n % i == 0 {
                         return false;
                     }
-                    i+=2;
+                    i += 2;
                 }
                 true
             }
@@ -37,8 +37,7 @@ mod prime {
         }
         list
     }
-    
-    
+
     /// # 素因数分解(factorize)
     /// This factorizes N and returns tuple(usize, usize).
     /// ## Example
@@ -62,12 +61,12 @@ mod prime {
             }
             list.push((x, 0_usize));
             while n % x == 0 {
-                n/=x;
+                n /= x;
                 let index = list.len() - 1;
                 list[index].1 += 1;
             }
             if is_prime(n) {
-                list.push((n,1));
+                list.push((n, 1));
                 break;
             }
         }
