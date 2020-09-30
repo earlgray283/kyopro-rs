@@ -5,13 +5,11 @@
     unused_mut,
     non_upper_case_globals
 )]
-use num::abs;
-use num::integer::gcd;
+
+use num::{abs, integer::gcd};
 use permutohedron::LexicalPermutation;
 use proconio::{fastout, input, marker::*};
-use std::cmp;
-use std::collections::{BTreeMap, BTreeSet, BinaryHeap, HashMap, HashSet, VecDeque};
-use std::mem::swap;
+use std::{cmp, collections::{BTreeMap, BTreeSet, BinaryHeap, HashMap, HashSet, VecDeque}, mem::swap};
 use text_io::{read, scan};
 const INF: i32 = std::i32::MAX;
 const MOD: i32 = 1e9 as i32 + 7;
