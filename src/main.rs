@@ -18,6 +18,11 @@ const No: &str = "No";
 static dx: [i32; 4] = [1, 0, -1, 0];
 static dy: [i32; 4] = [0, -1, 0, 1];
 
+#[fastout]
 fn main() {
-    
+    input! {
+        mut s: Chars
+    }
+
+    println!("{}", s[0]);
 }
