@@ -9,9 +9,12 @@
 use num::{abs, integer::gcd};
 use permutohedron::LexicalPermutation;
 use proconio::{fastout, input, marker::*};
-use std::{cmp, collections::{BTreeMap, BTreeSet, BinaryHeap, HashMap, HashSet, VecDeque}, mem::swap};
+use std::{
+    cmp,
+    collections::{BTreeMap, BTreeSet, BinaryHeap, HashMap, HashSet, VecDeque},
+    mem::swap,
+};
 use text_io::{read, scan};
-const INF: i32 = std::i32::MAX;
 const MOD: i32 = 1e9 as i32 + 7;
 const Yes: &str = "Yes";
 const No: &str = "No";
@@ -20,9 +23,5 @@ static dy: [i32; 4] = [0, -1, 0, 1];
 
 #[fastout]
 fn main() {
-    input! {
-        mut s: Chars
-    }
-
-    println!("{}", s[0]);
+    
 }

@@ -51,17 +51,6 @@ assert_eq!(2, opt.unwrap_or_else(|| &2));
 ```
 
 
-# 大小比較
-```rust
-// 大きいほう
-assert_eq!(std::cmp::max(3, 1), 3);
-assert_eq!(3.max(1), 3);
-
-// 小さいほう
-assert_eq!(std::cmp::min(3, 1), 1);
-assert_eq!(3.min(1), 3);
-```
-
 
 # 文字列関連
 ## 添え字参照
