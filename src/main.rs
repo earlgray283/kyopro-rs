@@ -12,12 +12,11 @@ use proconio::{fastout, input, marker::*};
 use std::{
     cmp,
     collections::{BTreeMap, BTreeSet, BinaryHeap, HashMap, HashSet, VecDeque},
+    io::{BufRead, Read},
     mem::swap,
 };
 use text_io::{read, scan};
 const MOD: i32 = 1e9 as i32 + 7;
-const Yes: &str = "Yes";
-const No: &str = "No";
 static dx: [i32; 4] = [1, 0, -1, 0];
 static dy: [i32; 4] = [0, -1, 0, 1];
 
