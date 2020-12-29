@@ -1,3 +1,4 @@
+use std::mem::swap;
 #[derive(Debug)]
 struct UnionFind {
     data: Vec<usize>,
