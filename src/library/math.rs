@@ -1,13 +1,13 @@
-/// return nCr
-fn ncr(n: i128, r: i128) -> i128 {
+/// nCr を求める
+pub fn ncr(n: i128, r: i128) -> i128 {
     match (n, r) {
         (0, _) | (_, 0) => 1,
         _ => ncr(n, r - 1) * (n - r + 1) / r,
     }
 }
 
-/// return x^n % m
-fn modpow(mut x: i128, mut n: i128, m: i128) -> i128 {
+/// x^n を m で割った余りを求める
+pub fn modpow(mut x: i128, mut n: i128, m: i128) -> i128 {
     let mut ans = 1;
     while n > 0 {
         if n & 1 != 0 {
@@ -20,8 +20,8 @@ fn modpow(mut x: i128, mut n: i128, m: i128) -> i128 {
     ans
 }
 
-/// return nCr % m
-fn modncr(n: i128, r: i128, m: i128) -> i128 {
+/// nCr を m で割った余りを求める
+pub fn modncr(n: i128, r: i128, m: i128) -> i128 {
     let mut x = 1;
     let mut y = 1;
 
