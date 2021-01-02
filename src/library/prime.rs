@@ -1,5 +1,6 @@
 use std::collections::HashMap;
 pub struct Prime {
+    #[allow(dead_code)]
     primes: Vec<usize>,
     prime_map: HashMap<usize, bool>,
     spf: HashMap<usize, usize>,

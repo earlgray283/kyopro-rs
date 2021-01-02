@@ -22,6 +22,7 @@ impl UnionFind {
             return x;
         }
         self.data[x] = self.root(self.data[x]);
+        
         self.data[x]
     }
 
