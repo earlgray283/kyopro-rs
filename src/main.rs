@@ -3,5 +3,5 @@ use proconio::{fastout, input, marker::*};
 
 #[fastout]
 fn main() {
-    
+
 }

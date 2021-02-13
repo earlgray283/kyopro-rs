@@ -1,4 +1,3 @@
-use std::mem::swap;
 #[derive(Debug)]
 pub struct UnionFind {
     data: Vec<usize>,
@@ -11,8 +10,8 @@ impl UnionFind {
     /// data は i で初期化され、rank は 1 で初期化される。 
     pub fn new(n: usize) -> UnionFind {
         UnionFind {
-            data: (0..n).map(|i| i).collect::<Vec<usize>>(),
-            rank: (0..n).map(|_| 1).collect::<Vec<usize>>(),
+            data: (0..n).map(|i| i).collect(),
+            rank: (0..n).map(|_| 1).collect(),
         }
     }
 
@@ -35,6 +34,7 @@ impl UnionFind {
             return;
         }
 
+        use std::mem::swap;
         if self.rank[root_x] < self.rank[root_y] {
             swap(&mut root_x, &mut root_y);
         }
