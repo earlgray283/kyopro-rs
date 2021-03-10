@@ -10,7 +10,7 @@ impl UnionFind {
     /// data は i で初期化され、rank は 1 で初期化される。 
     pub fn new(n: usize) -> UnionFind {
         UnionFind {
-            data: (0..n).map(|i| i).collect(),
+            data: (0..n).collect(),
             rank: (0..n).map(|_| 1).collect(),
         }
     }

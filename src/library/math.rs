@@ -17,6 +17,7 @@ pub fn modpow(mut x: i128, mut n: i128, m: i128) -> i128 {
         x = x * x % m;
         n >>= 1;
     }
+
     ans
 }
 
@@ -33,7 +34,5 @@ pub fn modncr(n: i128, r: i128, m: i128) -> i128 {
     }
 
     let ans = modpow(y, m - 2, m) % m;
-    let ans = (ans * x) % m;
-    
-    ans
+    (ans * x) % m
 }
