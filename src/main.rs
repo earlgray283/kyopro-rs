@@ -2,7 +2,9 @@
 use proconio::{fastout, input, marker::*};
 use std::collections::*;
 
-// #[fastout]
+//#[fastout]
 fn main() {
-
+    input! {
+        
+    }
 }
