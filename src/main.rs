@@ -1,7 +1,7 @@
 #[allow(unused_imports)]
 use proconio::{fastout, input, marker::*};
 
-#[fastout]
+// #[fastout]
 fn main() {
 
 }
