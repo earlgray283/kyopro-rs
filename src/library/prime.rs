@@ -14,7 +14,7 @@ impl Sieve {
             let mut j = i * 2;
             while j <= n {
                 table[j] = false;
-                j += j;
+                j += i;
             }
         }
         Self { table }
